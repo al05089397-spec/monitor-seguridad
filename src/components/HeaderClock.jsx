@@ -20,7 +20,7 @@ const HeaderClock = () => {
 
   return (
     <div className="flex flex-col items-end"> {/* Alineado a la derecha para verse mejor */}
-        <div className="text-3xl font-mono font-bold tracking-widest leading-none text-white">
+        <div className="text-2xl font-mono font-bold tracking-widest leading-none text-white">
             {timeString}
         </div>
         <div className="text-[10px] text-orange-400 uppercase tracking-[0.2em] font-bold mt-1">

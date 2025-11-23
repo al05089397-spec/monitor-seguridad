@@ -40,17 +40,17 @@ const MetalsCard = ({ symbol, title }) => {
   const displayPrice = price ? (price > 1000 ? price : 1/price) : 0; // Ajuste matemático según como devuelva tu API plan
 
   return (
-    <div className="bg-white p-3 rounded-lg shadow border-l-4 border-orange-500 h-full flex flex-col justify-between relative">
+    <div className="bg-white p-2 rounded-lg shadow border-l-4 border-orange-500 h-18 flex flex-col justify-between relative">
        <div className="flex justify-between items-start">
         <h3 className="text-[10px] font-bold text-gray-500 uppercase">{title}</h3>
-        <span className="h-1.5 w-1.5 bg-orange-500 rounded-full"></span>
+        <span className="h-2 w-1.5 bg-orange-500 rounded-full"></span>
       </div>
       
       {loading ? (
-         <div className="h-8 bg-gray-200 rounded w-1/2 animate-pulse"></div>
+         <div className="h-18 bg-gray-200 rounded w-1/2 animate-pulse"></div>
       ) : (
         <div className="flex items-end mt-1">
-             <span className="text-3xl font-extrabold tracking-tighter text-gray-800">
+             <span className="text-xl font-extrabold tracking-tighter text-gray-800">
                ${price?.toFixed(2)}
             </span>
             <span className="text-xs font-bold text-gray-400 ml-1 mb-1">USD/oz</span>

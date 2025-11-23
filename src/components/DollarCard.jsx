@@ -33,7 +33,7 @@ const DollarCard = () => {
   }, []);
 
   return (
-    <div className="bg-white p-3 rounded-lg shadow border-t-4 border-green-700 relative h-full flex flex-col justify-between">
+    <div className="bg-white p-2 rounded-lg shadow border-t-4 border-green-700 relative h-18 flex flex-col justify-between">
       <div className="flex justify-between items-start">
           <h3 className="text-[10px] font-bold text-gray-500 uppercase">Dólar (Banxico Oficial)</h3>
           <span className="h-2 w-2 bg-green-600 rounded-full animate-pulse"></span>
@@ -44,7 +44,7 @@ const DollarCard = () => {
       ) : (
         <div>
             <div className="flex items-baseline">
-                <span className="text-3xl font-extrabold tracking-tighter text-gray-900">
+                <span className="text-xl font-extrabold tracking-tighter text-gray-900">
                     ${rate?.toFixed(2)}
                 </span>
                 <span className="text-xs font-bold text-gray-500 ml-1">MXN</span>

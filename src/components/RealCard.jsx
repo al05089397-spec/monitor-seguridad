@@ -44,7 +44,7 @@ const RealCard = () => {
   const arrow = trend === 'up' ? '▲' : '▼';
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow border-t-4 border-yellow-500 relative overflow-hidden h-40 flex flex-col justify-between">
+    <div className="bg-white p-4 rounded-lg shadow border-t-4 border-yellow-500 relative overflow-hidden h-18 flex flex-col justify-between">
       
       {/* Encabezado */}
       <div>
@@ -52,8 +52,8 @@ const RealCard = () => {
             <h3 className="text-xs font-bold text-gray-500 uppercase">Bitcoin</h3>
             <div className="flex items-center gap-1 bg-green-50 px-2 py-1 rounded-full border border-green-100">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  <span className="animate-ping absolute inline-flex h-18 w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-18 h-2 w-2 bg-green-500"></span>
                 </span>
                 <span className="text-[10px] text-green-700 font-bold tracking-wider">EN VIVO</span>
             </div>

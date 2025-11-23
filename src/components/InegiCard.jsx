@@ -40,7 +40,7 @@ const InegiCard = ({ title, indicatorID, unit, trendOverride }) => {
   if (trendOverride === 'good') colorClass = 'text-green-600';
 
   return (
-    <div className="bg-white p-3 rounded-lg shadow border-l-4 border-pink-600 h-full flex flex-col justify-between relative">
+    <div className="bg-white p-2 rounded-lg shadow border-l-4 border-pink-600 h-18 flex flex-col justify-between relative">
       <div className="flex justify-between items-start">
         <h3 className="text-[10px] font-bold text-gray-500 uppercase">{title}</h3>
         <span className="text-[8px] bg-pink-50 text-pink-700 px-1 rounded border border-pink-100 font-bold">
@@ -52,7 +52,7 @@ const InegiCard = ({ title, indicatorID, unit, trendOverride }) => {
           {loading ? (
              <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
           ) : (
-             <span className={`text-3xl font-extrabold tracking-tighter ${colorClass}`}>
+             <span className={`text-2xl font-extrabold tracking-tighter ${colorClass}`}>
                {value ? value.toFixed(2) : '--'}
             </span>
           )}

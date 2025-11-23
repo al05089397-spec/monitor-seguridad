@@ -17,11 +17,11 @@ const SecurityCard = ({ title, currentMonth, lastMonth, unit = '' }) => {
   const sign = isBadNews ? '+' : '';
 
   return (
-    <div className={`p-4 rounded-lg shadow border-l-4 ${isBadNews ? 'border-red-500' : 'border-green-500'} bg-white relative`}>
+    <div className={`p-2 rounded-lg shadow border-l-4 ${isBadNews ? 'border-red-500' : 'border-green-500'} bg-white relative`}>
       <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider">{title}</h3>
       
       <div className="mt-2 flex items-baseline justify-between">
-        <span className="text-3xl font-bold text-gray-800">
+        <span className="text-2xl font-bold text-gray-800">
           {currentMonth.toLocaleString('es-MX')}
           <span className="text-sm font-normal text-gray-400 ml-1">{unit}</span>
         </span>

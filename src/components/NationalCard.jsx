@@ -34,7 +34,7 @@ const NationalCard = ({ title, indicatorCode, unit, trendOverride }) => {
   if (trendOverride === 'good') colorClass = 'text-green-600';
 
   return (
-    <div className="bg-white p-3 rounded-lg shadow border-l-4 border-indigo-500 h-full flex flex-col justify-between relative">
+    <div className="bg-white p-2 rounded-lg shadow border-l-4 border-indigo-500 h-18 flex flex-col justify-between relative">
       <div className="flex justify-between items-start">
         <h3 className="text-[10px] font-bold text-gray-500 uppercase">{title}</h3>
         <span className="text-[8px] bg-indigo-50 text-indigo-600 px-1 rounded border border-indigo-100">
@@ -46,8 +46,8 @@ const NationalCard = ({ title, indicatorCode, unit, trendOverride }) => {
         <div className="h-6 bg-gray-200 rounded w-2/3 animate-pulse mt-2"></div>
       ) : (
         <div className="flex items-end mt-1">
-            {/* CAMBIO AQUÍ: text-3xl font-extrabold tracking-tighter */}
-            <span className={`text-3xl font-extrabold tracking-tighter ${colorClass}`}>
+            {/* CAMBIO AQUÍ: text-xl font-extrabold tracking-tighter */}
+            <span className={`text-xl font-extrabold tracking-tighter ${colorClass}`}>
                {value?.toFixed(2)}
             </span>
             <span className="text-xs font-bold text-gray-400 ml-1 mb-1">{unit}</span>
