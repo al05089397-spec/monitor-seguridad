@@ -60,10 +60,10 @@ function App() {
         </div>
 
         {/* === COLUMNA CENTRAL (6/12): MACRO Y ANÁLISIS (Sección 1) === */}
-        <div className="col-span-6 flex flex-col gap-1">
+        <div className="col-span-3 flex flex-col gap-1">
             
-            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-1">🇲🇽 Indicadores Oficiales</h2>
-            <div className="grid grid-cols-5 gap-1 shrink-0">
+            <h2 className="text-slate-800 font-bold text-[10px] uppercase border-b border-slate-300 pb-1">🇲🇽 Indicadores Oficiales</h2>
+            <div className="grid grid-cols-2 gap-1 shrink-0">
                 <InegiCard title="Desempleo MX" indicatorID="SL.UEM.TOTL.ZS" unit="%" trendOverride="good" />
                 <InegiCard title="Inflación Anual" indicatorID="FP.CPI.TOTL.ZG" unit="%" trendOverride="bad" />
                 <StatCard title="Deuda Pública" value="35b" unit="MDP" />
