@@ -15,8 +15,8 @@ import SalarioCard from './components/SalarioCard';
 
 function App() {
   return (
-    // FIX FINAL: Quitamos h-screen overflow-hidden y usamos min-h-screen overflow-auto
-    <div className="min-h-screen w-full bg-slate-50 p-2 font-sans flex flex-col gap-2 overflow-auto">
+    // CONTENEDOR PRINCIPAL: Permitimos scroll en móvil, ocultamos en grande
+    <div className="min-h-screen w-full bg-slate-50 p-2 font-sans flex flex-col gap-2 overflow-y-auto lg:overflow-hidden">
       
       {/* HEADER CORPORATIVO */}
       <header className="bg-slate-900 text-white p-2 rounded-lg shadow-lg flex justify-between items-center border-b-4 border-orange-500 sticky top-2 z-50 h-20">
@@ -37,12 +37,13 @@ function App() {
         </div>
       </header>
 
-      {/* CONTENIDO PRINCIPAL: 3 COLUMNAS CON ALTURA CALCULADA */}
-      <main className="flex-1 grid grid-cols-12 gap-2 min-h-0 overflow-hidden">
+      {/* CONTENIDO MAIN: GRID RESPONSIVO 12-COLUMNAS */}
+      <main className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-2 pb-2 min-h-0">
         
-        {/* === COLUMNA IZQUIERDA === */}
-        <div className="col-span-3 flex flex-col gap-2 overflow-y-auto overflow-x-hidden">
-            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5 flex-shrink-0">🚨 Delitos y Municipios</h2>
+        {/* === COLUMNA IZQUIERDA (3/12) === */}
+        {/* En móvil: col-span-12 (Full Width) */}
+        <div className="col-span-12 lg:col-span-3 flex flex-col gap-2 h-full justify-between">
+            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5">🚨 Delitos y Municipios</h2>
             
             <div className="grid grid-cols-2 gap-1 flex-shrink-0">
                 <LiveCrimeCard title="Robos Totales" monthlyTotal={180851} trendPct={-2.4} />
@@ -61,10 +62,11 @@ function App() {
             </div>
         </div>
 
-        {/* === COLUMNA CENTRAL === */}
-        <div className="col-span-6 flex flex-col gap-2 min-h-0 overflow-hidden">
+        {/* === COLUMNA CENTRAL (6/12) === */}
+        {/* En móvil: col-span-12 (Full Width) */}
+        <div className="col-span-12 lg:col-span-6 flex flex-col gap-1">
             
-            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5 flex-shrink-0">🇲🇽 Indicadores Oficiales</h2>
+            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5">🇲🇽 Indicadores Oficiales</h2>
             <div className="grid grid-cols-5 gap-1 flex-shrink-0">
                 <InegiCard title="Desempleo MX" indicatorID="SL.UEM.TOTL.ZS" unit="%" trendOverride="good" />
                 <InegiCard title="Inflación Anual" indicatorID="FP.CPI.TOTL.ZG" unit="%" trendOverride="bad" />
@@ -73,28 +75,28 @@ function App() {
                 <StatCard title="PIB per Cápita" value="289,432" unit="MXN" />
             </div>
 
-            {/* GRÁFICA - USA ESPACIO RESTANTE */}
-            <section className="flex-1 min-h-0 flex flex-col">
-                <h2 className="text-slate-800 font-bold text-sm uppercase mb-1 flex-shrink-0">📊 Análisis de Correlación 360°</h2>
-                <div className="flex-1 min-h-0 bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+            <section className="flex-1 min-h-[400px]">
+                <h2 className="text-slate-800 font-bold text-sm uppercase mb-1">📊 Análisis de Correlación 360°</h2>
+                <div className="h-full w-full relative bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
                     <CorrelationChart />
                 </div>
             </section>
         </div>
 
-        {/* === COLUMNA DERECHA === */}
-        <div className="col-span-3 flex flex-col gap-2 overflow-y-auto overflow-x-hidden">
+        {/* === COLUMNA DERECHA (3/12) === */}
+        {/* En móvil: col-span-12 (Full Width) */}
+        <div className="col-span-12 lg:col-span-3 flex flex-col gap-1 h-full justify-between">
             
-            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5 flex-shrink-0">🏦 Mercado, Divisas y Metales</h2>
-            <div className="grid grid-cols-2 gap-1 flex-shrink-0">
+            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5">🏦 Mercado, Divisas y Metales</h2>
+            <div className="grid grid-cols-2 gap-1">
                 <MetalsCard symbol="XCU" title="Cobre" />
                 <LiveMarketCard title="Oro (Oz)" baseValue={2035.50} unit="USD" />
                 <LiveMarketCard title="Plata (Kg)" baseValue={785.20} unit="USD" />
                 <LiveMarketCard title="Litro Diésel" baseValue={25.89} unit="MXN" trendDirection="up" />
             </div>
 
-            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5 flex-shrink-0">👥 Contexto Social y Eficiencia</h2>
-            <div className="flex flex-col gap-2 flex-shrink-0"> 
+            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5">👥 Contexto Social y Eficiencia</h2>
+            <div className="flex flex-col gap-2"> 
                 <DollarCard /> 
                 <SalarioCard />
                 <StatCard title="Población BC" value="3.76" unit="M" color="text-blue-900" />
