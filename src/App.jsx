@@ -1,6 +1,6 @@
 import React from 'react';
 
-// COMPONENTES
+// IMPORTACIÓN DE COMPONENTES
 import LiveCrimeCard from './components/LiveCrimeCard';
 import NationalCard from './components/NationalCard';
 import DollarCard from './components/DollarCard';
@@ -15,43 +15,43 @@ import SalarioCard from './components/SalarioCard';
 
 function App() {
   return (
-    // LAYOUT ROBUSTO FINAL
+    // FIX FINAL: Quitamos h-screen overflow-hidden y usamos min-h-screen overflow-auto
     <div className="min-h-screen w-full bg-slate-50 p-2 font-sans flex flex-col gap-2 overflow-auto">
       
       {/* HEADER CORPORATIVO */}
-      <header className="bg-slate-900 text-white p-2 rounded-lg shadow-lg flex justify-between items-center border-b-4 border-orange-500 sticky top-2 z-50 h-32">
+      <header className="bg-slate-900 text-white p-2 rounded-lg shadow-lg flex justify-between items-center border-b-4 border-orange-500 sticky top-2 z-50 h-20">
         <div className="flex items-center z-20 w-1/3 self-center">
-            <div className="bg-white rounded-lg p-1 h-20 w-auto flex items-center justify-center shadow-md"> 
+            <div className="bg-white rounded-lg p-1 h-10 w-auto flex items-center justify-center shadow-sm">
                 <img src="/logo.jpg" alt="Logo" className="h-full w-auto object-contain" />
             </div>
         </div>
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
-            <h1 className="text-2xl font-extrabold tracking-wide leading-none text-white drop-shadow-md">ANÁLISIS ESTRATÉGICO</h1>
-            <p className="text-sm text-slate-400 opacity-90 tracking-[0.2em] uppercase mt-2 font-semibold">INCIDENCIA DELICTIVA Y FACTORES DE RIESGO</p>
+            <h1 className="text-xl font-extrabold tracking-wide leading-none text-white drop-shadow-md">ANÁLISIS ESTRATÉGICO</h1>
+            <p className="text-[8px] text-slate-400 opacity-90 tracking-[0.2em] uppercase mt-1 font-semibold">INCIDENCIA DELICTIVA Y FACTORES DE RIESGO</p>
         </div>
         <div className="flex items-center gap-4 z-20 w-1/3 justify-end self-center">
             <HeaderClock />
-            <div className="border-l border-slate-600 pl-4"><HeaderWeather /></div>
+            <div className="border-l border-slate-600 pl-4">
+                <HeaderWeather />
+            </div>
         </div>
       </header>
 
-      {/* CONTENIDO PRINCIPAL: 3 COLUMNAS RÍGIDAS CON AJUSTE DE ALTURA */}
-      <main className="flex-1 grid grid-cols-12 gap-2 pb-2 h-full"> {/* h-full en main */}
+      {/* CONTENIDO PRINCIPAL: 3 COLUMNAS CON ALTURA CALCULADA */}
+      <main className="flex-1 grid grid-cols-12 gap-2 min-h-0 overflow-hidden">
         
-        {/* === COLUMNA IZQUIERDA (OPERATIVA / DELITOS) === */}
-        <div className="col-span-3 flex flex-col gap-2 h-full justify-between"> {/* H-FULL Y JUSTIFY-BETWEEN */}
-            <div>
-                <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-1">🚨 Delitos y Municipios</h2>
-                
-                <div className="grid grid-cols-2 gap-2">
-                    <LiveCrimeCard title="Robos Totales" monthlyTotal={180851} trendPct={-2.4} />
-                    <LiveCrimeCard title="Homicidios" monthlyTotal={9350} trendPct={10.9} />
-                    <LiveCrimeCard title="Secuestros" monthlyTotal={536} trendPct={-5.0} />
-                    <LiveCrimeCard title="Extorsiones" monthlyTotal={1452} trendPct={8.2} />
-                </div>
+        {/* === COLUMNA IZQUIERDA === */}
+        <div className="col-span-3 flex flex-col gap-2 overflow-y-auto overflow-x-hidden">
+            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5 flex-shrink-0">🚨 Delitos y Municipios</h2>
+            
+            <div className="grid grid-cols-2 gap-1 flex-shrink-0">
+                <LiveCrimeCard title="Robos Totales" monthlyTotal={180851} trendPct={-2.4} />
+                <LiveCrimeCard title="Homicidios" monthlyTotal={9350} trendPct={10.9} />
+                <LiveCrimeCard title="Secuestros" monthlyTotal={536} trendPct={-5.0} />
+                <LiveCrimeCard title="Extorsiones" monthlyTotal={1452} trendPct={8.2} />
             </div>
 
-            <div className="flex flex-col gap-2 bg-white rounded-lg shadow p-2">
+            <div className="flex flex-col gap-1 bg-white rounded-lg shadow p-1 flex-shrink-0">
                 <h3 className="text-slate-800 font-bold text-[10px] uppercase mb-1 border-b border-gray-200 pb-1">📍 Incidencia por Municipio</h3>
                 <LiveCrimeCard title="Tijuana" monthlyTotal={32157} trendPct={4.1} />
                 <LiveCrimeCard title="Mexicali" monthlyTotal={15432} trendPct={-1.2} />
@@ -61,11 +61,11 @@ function App() {
             </div>
         </div>
 
-        {/* === COLUMNA CENTRAL (MACRO Y ANÁLISIS) === */}
-        <div className="col-span-6 flex flex-col gap-2">
+        {/* === COLUMNA CENTRAL === */}
+        <div className="col-span-6 flex flex-col gap-2 min-h-0 overflow-hidden">
             
-            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-1">🇲🇽 Indicadores Oficiales</h2>
-            <div className="grid grid-cols-5 gap-2 shrink-0">
+            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5 flex-shrink-0">🇲🇽 Indicadores Oficiales</h2>
+            <div className="grid grid-cols-5 gap-1 flex-shrink-0">
                 <InegiCard title="Desempleo MX" indicatorID="SL.UEM.TOTL.ZS" unit="%" trendOverride="good" />
                 <InegiCard title="Inflación Anual" indicatorID="FP.CPI.TOTL.ZG" unit="%" trendOverride="bad" />
                 <StatCard title="Deuda Pública" value="35b" unit="MDP" />
@@ -73,27 +73,28 @@ function App() {
                 <StatCard title="PIB per Cápita" value="289,432" unit="MXN" />
             </div>
 
-            <section className="flex-1 min-h-[400px]">
-                <h2 className="text-slate-800 font-bold text-sm uppercase mb-1">📊 Análisis de Correlación 360°</h2>
-                <div className="h-full w-full relative bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+            {/* GRÁFICA - USA ESPACIO RESTANTE */}
+            <section className="flex-1 min-h-0 flex flex-col">
+                <h2 className="text-slate-800 font-bold text-sm uppercase mb-1 flex-shrink-0">📊 Análisis de Correlación 360°</h2>
+                <div className="flex-1 min-h-0 bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
                     <CorrelationChart />
                 </div>
             </section>
         </div>
 
-        {/* === COLUMNA DERECHA (MERCADO Y CONTEXTO) === */}
-        <div className="col-span-3 flex flex-col gap-2 h-full justify-between"> {/* H-FULL Y JUSTIFY-BETWEEN */}
+        {/* === COLUMNA DERECHA === */}
+        <div className="col-span-3 flex flex-col gap-2 overflow-y-auto overflow-x-hidden">
             
-            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-1">🏦 Mercado, Divisas y Metales</h2>
-            <div className="grid grid-cols-2 gap-2">
+            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5 flex-shrink-0">🏦 Mercado, Divisas y Metales</h2>
+            <div className="grid grid-cols-2 gap-1 flex-shrink-0">
                 <MetalsCard symbol="XCU" title="Cobre" />
                 <LiveMarketCard title="Oro (Oz)" baseValue={2035.50} unit="USD" />
                 <LiveMarketCard title="Plata (Kg)" baseValue={785.20} unit="USD" />
                 <LiveMarketCard title="Litro Diésel" baseValue={25.89} unit="MXN" trendDirection="up" />
             </div>
 
-            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-1">👥 Contexto Social y Eficiencia</h2>
-            <div className="flex flex-col gap-2"> 
+            <h2 className="text-slate-800 font-bold text-[11px] uppercase border-b border-slate-300 pb-0.5 flex-shrink-0">👥 Contexto Social y Eficiencia</h2>
+            <div className="flex flex-col gap-2 flex-shrink-0"> 
                 <DollarCard /> 
                 <SalarioCard />
                 <StatCard title="Población BC" value="3.76" unit="M" color="text-blue-900" />

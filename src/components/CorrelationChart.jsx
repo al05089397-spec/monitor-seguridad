@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ComposedChart, Line, Area, XAxis, YAxis, ResponsiveContainer, CartesianGrid, ReferenceLine } from 'recharts';
 
 const DATA = [
-    { name: 'ENE', crimen: 3150, dolar: 16.90, diesel: 24.10, cobre: 3.65, desempleo: 2.8, inflacion: 4.8, clima: 14 },
+    { name: 'EN', crimen: 3150, dolar: 16.90, diesel: 24.10, cobre: 3.65, desempleo: 2.8, inflacion: 4.8, clima: 14 },
     { name: 'FEB', crimen: 3100, dolar: 16.95, diesel: 24.20, cobre: 3.70, desempleo: 2.7, inflacion: 4.7, clima: 15 },
     { name: 'MAR', crimen: 3250, dolar: 16.80, diesel: 24.45, cobre: 3.85, desempleo: 2.7, inflacion: 4.6, clima: 16 },
     { name: 'ABR', crimen: 3400, dolar: 16.60, diesel: 24.60, cobre: 3.90, desempleo: 2.6, inflacion: 4.6, clima: 18 },
-    { name: 'MAYO', crimen: 3600, dolar: 16.50, diesel: 24.85, cobre: 4.05, desempleo: 2.6, inflacion: 4.5, clima: 20 },
+    { name: 'MA', crimen: 3600, dolar: 16.50, diesel: 24.85, cobre: 4.05, desempleo: 2.6, inflacion: 4.5, clima: 20 }, // CAMBIO A 'MA'
     { name: 'JUN', crimen: 3900, dolar: 17.20, diesel: 25.10, cobre: 3.95, desempleo: 2.5, inflacion: 4.4, clima: 22 }, 
     { name: 'JUL', crimen: 4150, dolar: 17.80, diesel: 25.35, cobre: 3.80, desempleo: 2.5, inflacion: 4.4, clima: 24 },
     { name: 'AGO', crimen: 4400, dolar: 18.10, diesel: 25.50, cobre: 3.75, desempleo: 2.4, inflacion: 4.3, clima: 25 },
